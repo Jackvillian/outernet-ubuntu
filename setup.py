@@ -68,12 +68,12 @@ if __name__ == "__main__":
 
 
 print "\nCOPY BINARIES:"
-PEFIX_DIR_PATH = "/Users/jackv/temp/"
+PEFIX_DIR_PATH = "/usr/local"
 
 LIST_DIRS=['bin/','sdr.d/','share/outernet/']
 BIN_LIST=['ondd-2.2.0','rtl_biast','sdr100-1.0.4']
-CACHE_PATH=PEFIX_DIR_PATH+"/var/spool/ondd"
-DOWNLOADS_PATH=PEFIX_DIR_PATH+"/var/downloads"
+CACHE_PATH="/var/spool/ondd"
+DOWNLOADS_PATH="/var/downloads"
 for dir in LIST_DIRS:
     try:
         if os.path.isdir(PEFIX_DIR_PATH+dir):
