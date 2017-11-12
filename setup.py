@@ -1,7 +1,7 @@
 import os, shutil,stat
 from tzlocal import get_localzone
 import configparser
-
+from crontab import CronTab
 
 def create_config(path):
     """
@@ -68,7 +68,7 @@ if __name__ == "__main__":
 
 
 print "\nCOPY BINARIES:"
-PEFIX_DIR_PATH = "/usr/local"
+PEFIX_DIR_PATH = "/usr/local/"
 
 LIST_DIRS=['bin/','sdr.d/','share/outernet/']
 BIN_LIST=['ondd-2.2.0','rtl_biast','sdr100-1.0.4']
