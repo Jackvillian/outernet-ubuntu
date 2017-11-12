@@ -86,6 +86,7 @@ for dir in LIST_DIRS:
 
 shutil.copytree('sdr.d/starsdr-mirics', PEFIX_DIR_PATH+"sdr.d/starsdr-mirics")
 shutil.copytree('sdr.d/starsdr-rtlsdr', PEFIX_DIR_PATH+"sdr.d/starsdr-rtlsdr")
+shutil.copytree('etc/outernet/settings.conf', '/etc/outernet/settings.conf')
 for bins in BIN_LIST:
     shutil.copy('bin/'+bins, PEFIX_DIR_PATH + 'bin/'+bins)
     st = os.stat(PEFIX_DIR_PATH + 'bin/'+bins)
