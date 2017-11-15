@@ -46,8 +46,6 @@ def update_setting(path, section, setting, value):
 
 tz = get_localzone()
 print "OUTERNET BY SDR-RTL ON LINUX MACHINE\n          INSTALL START\n####################################"
-envfile=open('.env','w')
-envfile.write('export LD_LIBRARY_PATH="/usr/local/sdr.d/starsdr-rtlsdr/"\n')
 print "Location setting by your timezone:\r"
 loc=str(tz).split(os.sep)
 print tz
@@ -72,6 +70,7 @@ PEFIX_DIR_PATH = "/usr/local/"
 
 LIST_DIRS=['bin/','sdr.d/','share/outernet/']
 BIN_LIST=['ondd-2.2.0','rtl_biast','sdr100-1.0.4']
+LIB_LIST=['librtlsdr.so','libstarsdr.so']
 CACHE_PATH="/var/spool/ondd"
 DOWNLOADS_PATH="/var/downloads"
 for dir in LIST_DIRS:
@@ -84,15 +83,16 @@ for dir in LIST_DIRS:
         print PEFIX_DIR_PATH + dir+"\n"
         print "alredy exist or permission denied!\n"
 
-shutil.copytree('sdr.d/starsdr-mirics', PEFIX_DIR_PATH+"sdr.d/starsdr-mirics")
-shutil.copytree('sdr.d/starsdr-rtlsdr', PEFIX_DIR_PATH+"sdr.d/starsdr-rtlsdr")
+
 shutil.copytree('etc/outernet/', '/etc/outernet/')
 for bins in BIN_LIST:
     shutil.copy('bin/'+bins, PEFIX_DIR_PATH + 'bin/'+bins)
     st = os.stat(PEFIX_DIR_PATH + 'bin/'+bins)
     os.chmod(PEFIX_DIR_PATH + 'bin/'+bins, st.st_mode | stat.S_IEXEC)
-
-
+for lib in LIB_LIST:
+    shutil.copy('sdr.d/starsdr-rtlsdr' + lib, "/lib/x86_64-linux-gnu/" + lib)
+    st = os.stat("/lib/x86_64-linux-gnu/" + lib)
+    os.chmod("/lib/x86_64-linux-gnu/" + lib, st.st_mode | stat.S_IEXEC)
 print "\nCREATE RECEIVED DATA DIRS:"
 print CACHE_PATH
 print DOWNLOADS_PATH
