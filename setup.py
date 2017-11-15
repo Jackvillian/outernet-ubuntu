@@ -92,7 +92,7 @@ for bins in BIN_LIST:
     st = os.stat(PEFIX_DIR_PATH + 'bin/'+bins)
     os.chmod(PEFIX_DIR_PATH + 'bin/'+bins, st.st_mode | stat.S_IEXEC)
 for lib in LIB_LIST:
-    shutil.copy('sdr.d/starsdr-rtlsdr' + lib, "/lib/x86_64-linux-gnu/" + lib)
+    shutil.copy('sdr.d/starsdr-rtlsdr/' + lib, "/lib/x86_64-linux-gnu/" + lib)
     st = os.stat("/lib/x86_64-linux-gnu/" + lib)
     os.chmod("/lib/x86_64-linux-gnu/" + lib, st.st_mode | stat.S_IEXEC)
 print "\nCREATE RECEIVED DATA DIRS:"
