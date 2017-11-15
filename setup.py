@@ -83,8 +83,10 @@ for dir in LIST_DIRS:
         print PEFIX_DIR_PATH + dir+"\n"
         print "alredy exist or permission denied!\n"
 
-
-shutil.copytree('etc/outernet/', '/etc/outernet/')
+try:
+ shutil.copytree('etc/outernet/', '/etc/outernet/')
+except:
+    print "configuration alredy exist"
 for bins in BIN_LIST:
     shutil.copy('bin/'+bins, PEFIX_DIR_PATH + 'bin/'+bins)
     st = os.stat(PEFIX_DIR_PATH + 'bin/'+bins)
