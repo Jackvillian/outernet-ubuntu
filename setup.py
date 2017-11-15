@@ -82,7 +82,8 @@ for dir in LIST_DIRS:
     except:
         print PEFIX_DIR_PATH + dir+"\n"
         print "alredy exist or permission denied!\n"
-
+os.symlink("/usr/local/bin/sdr100-1.0.4", "/usr/local/bin/sdr100" )
+os.symlink("/usr/local/bin/ondd-2.2.0", "/usr/local/bin/ondd" )
 try:
  shutil.copytree('etc/outernet/', '/etc/outernet/')
 except:
