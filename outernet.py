@@ -6,7 +6,7 @@ from tzlocal import get_localzone
 import configparser
 
 
-confpath = "etc/outernet/settings.conf"
+confpath = "/etc/outernet/settings.conf"
 
 def get_config(path):
     """

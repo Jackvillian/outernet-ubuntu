@@ -13,6 +13,9 @@ def create_config(path):
     config.set("Settings", "SYMBOL_RATE", "4200")
     config.set("Settings", "ENABLE_BIAST", "0")
     config.set("Settings", "UNCERTAINTY_FREQ", "4000")
+    config.set("Settings","CACHE_PATH", "/var/spool/ondd")
+    config.set("Settings","DOWNLOADS_PATH","/srv/downloads")
+
 
     with open(path, "w") as config_file:
         config.write(config_file)
