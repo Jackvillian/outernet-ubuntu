@@ -48,6 +48,14 @@ for line in p.stdout:
     print(">>> " + str(line.rstrip()))
     p.stdout.flush()
 
+
+def erptool():
+    sshProcess = subprocess.Popen([CMD],
+                                  stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    out, err = sshProcess.communicate("cd /home/thvajra/transfer/08_sagarwa\nls -l\n")
+    print(out),
+erptool()
+
 #def main():
 #    while True:
 #        log=open('/var/log/outernet-demod',"a")
