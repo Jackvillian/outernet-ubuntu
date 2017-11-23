@@ -52,11 +52,11 @@ cmd.append('-u')
 cmd.append(ufreq)
 cmd.append('-s 1 -b 0.2 -w')
 
-def new_comm():
-    proc = subprocess.Popen (cmd, shell=False, stdout=subprocess.PIPE)
+def demodulator():
+    proc = subprocess.Popen (cmd, shell=True, stdout=subprocess.PIPE)
     out = proc.communicate()
     print(out)
-new_comm()
+
 
 #def main():
 #    while True:
@@ -75,3 +75,4 @@ new_comm()
 #        Daemonize()
 #        print pidfile
 #        daemon.start()
+demodulator()
