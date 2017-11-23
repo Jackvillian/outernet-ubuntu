@@ -50,9 +50,8 @@ for line in p.stdout:
 
 
 def erptool():
-    sshProcess = subprocess.Popen([CMD],
-                                  stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    out, err = sshProcess.communicate("cd /home/thvajra/transfer/08_sagarwa\nls -l\n")
+    proc = subprocess.Popen (CMD, shell=False, stdout=subprocess.PIPE)
+    out = proc.communicate()[0]
     print(out),
 erptool()
 
