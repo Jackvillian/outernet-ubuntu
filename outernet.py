@@ -40,7 +40,7 @@ print "INFO: cache path "+ "/var/spool/ondd"
 print "INFO: downloads path " + "/srv/downloads"
 print "INFO: your location "+ str(tz)
 print "##########################"
-CMD="sdr100 -f " + freq + " -r " +srate+" -u "+ufreq+" -s 1 -b 0.2 -w"
+CMD="/usr/local/bin/sdr100 -f " + freq + " -r " +srate+" -u "+ufreq+" -s 1 -b 0.2 -w"
 print "start command: ",CMD
 p=subprocess.Popen(CMD, shell=True, bufsize=256, stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
 
