@@ -40,20 +40,23 @@ print "INFO: cache path "+ "/var/spool/ondd"
 print "INFO: downloads path " + "/srv/downloads"
 print "INFO: your location "+ str(tz)
 print "##########################"
+cmd=[]
 CMD="/usr/local/bin/sdr100 -f " + freq + " -r " +srate+" -u "+ufreq+" -s 1 -b 0.2 -w"
 print "start command: ",CMD
-p=subprocess.Popen(CMD, shell=True, bufsize=256, stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+cmd.append('/usr/local/bin/sdr100')
+cmd.append('-f')
+cmd.append(freq)
+cmd.append('-r')
+cmd.append(srate)
+cmd.append('-u')
+cmd.append(ufreq)
+cmd.append('-s 1 -b 0.2 -w')
 
-for line in p.stdout:
-    print(">>> " + str(line.rstrip()))
-    p.stdout.flush()
-
-
-def erptool():
-    proc = subprocess.Popen (CMD, shell=False, stdout=subprocess.PIPE)
-    out = proc.communicate()[0]
-    print(out),
-erptool()
+def new_comm():
+    proc = subprocess.Popen (cmd, shell=False, stdout=subprocess.PIPE)
+    out = proc.communicate()
+    print(out)
+new_comm()
 
 #def main():
 #    while True:
