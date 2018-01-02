@@ -22,6 +22,7 @@ ln -s /etc/sdr_outernet/dump1090-run /usr/local/bin/dump1090-run
 chmod 777 /usr/local/bin/outernet-run
 chmod 777 /usr/local/bin/dump1090-run
 echo "blacklist dvb_usb_rtl28xxu" >> /etc/modprobe.d/blacklist.conf
+ln -s /usr/bin/nodejs /usr/bin/node
 npm install -g @rafaelrinaldi/whereami
 mkdir -p /tmp/dump1090/dump1090-mut-data
 
